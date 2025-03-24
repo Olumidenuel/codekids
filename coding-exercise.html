@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeKids AI Adventure - Interactive Coding Exercise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/js/interactive.css">
+    <link rel="stylesheet" href="/css/screenshot-ui.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Card -->
+        <div class="card-container header-card page-load-animation">
+            <div class="logo-container">
+                <div class="logo-image animated-logo">
+                    <div style="font-size: 40px;">👾</div>
+                </div>
+                <div class="logo-text">
+                    <h1 class="rainbow-text">CodeKids</h1>
+                    <h2>AI Adventure</h2>
+                </div>
+            </div>
+            <div class="welcome-message">
+                <h2 class="slide-in-right">Coding Exercise</h2>
+                <p class="slide-in-right">Learn coding by solving fun challenges</p>
+            </div>
+        </div>
+
+        <!-- Main Content Card -->
+        <div class="card-container page-load-animation hover-shadow">
+            <section>
+                <h1 class="pulse">Coding Exercise: Move the Robot</h1>
+                <p>Help the robot reach the goal by arranging the code blocks in the right order!</p>
+            </section>
+
+            <div class="coding-exercise" data-exercise-id="level-1-exercise-1" data-path-type="coding">
+                <h2 class="wiggle-hover">Exercise: Navigate the Maze</h2>
+                <p>Drag blocks from the palette to the workspace to create a program. Then click "Run" to see if your robot reaches the goal!</p>
+                
+                <div class="code-blocks-palette">
+                    <div class="code-block move-block palette-original hover-float wiggle-hover" data-block-type="move" data-block-value="1" data-block-id="palette-move-1">
+                        Move Forward 1
+                    </div>
+                    <div class="code-block move-block palette-original hover-float wiggle-hover" data-block-type="move" data-block-value="2" data-block-id="palette-move-2">
+                        Move Forward 2
+                    </div>
+                    <div class="code-block turn-block palette-original hover-float wiggle-hover" data-block-type="turn" data-block-value="Left" data-block-id="palette-turn-left">
+                        Turn Left
+                    </div>
+                    <div class="code-block turn-block palette-original hover-float wiggle-hover" data-block-type="turn" data-block-value="Right" data-block-id="palette-turn-right">
+                        Turn Right
+                    </div>
+                    <div class="code-block repeat-block palette-original hover-float wiggle-hover" data-block-type="repeat" data-block-value="2" data-block-id="palette-repeat-2">
+                        Repeat 2 Times
+                    </div>
+                </div>
+                
+                <h3 class="slide-in-left">Your Code Workspace:</h3>
+                <div class="code-workspace hover-shadow"></div>
+                
+                <h3 class="slide-in-left">Code Preview:</h3>
+                <pre class="code-preview hover-shadow">// Your code will appear here</pre>
+                
+                <div class="code-actions">
+                    <button class="button button-primary run-code-button animated-button pulse">Run Code</button>
+                    <button class="button button-secondary reset-code-button animated-button">Reset</button>
+                    <button class="button button-secondary hint-button animated-button">Show Hint</button>
+                </div>
+                
+                <div class="hint-container hidden fade-in">
+                    <h3>Hint:</h3>
+                    <p>Try moving forward, then turning right, then moving forward again to reach the goal.</p>
+                </div>
+                
+                <h3 class="slide-in-left">Exercise Canvas:</h3>
+                <div class="exercise-canvas hover-shadow">
+                    <div class="exercise-character bounce">🤖</div>
+                    <div class="exercise-obstacle" style="top: 50px; left: 200px;"></div>
+                    <div class="exercise-obstacle" style="top: 150px; left: 200px;"></div>
+                    <div class="exercise-obstacle" style="top: 250px; left: 200px;"></div>
+                    <div class="exercise-goal" style="top: 150px; left: 400px;" class="pulse">🏁</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Card -->
+        <div class="card-container page-load-animation hover-shadow">
+            <h2 class="wiggle-hover">Your Adventure Map</h2>
+            <p>Track your progress and earn badges!</p>
+            
+            <div class="progress-tracking">
+                <h3 class="slide-in-left">Coding Basics Path:</h3>
+                <div class="progress-bar hover-shadow">
+                    <div class="progress-fill coding-progress" data-level="1" style="width: 10%;"></div>
+                </div>
+                <p>Level 1 - 10% Complete</p>
+                
+                <h3 class="slide-in-left">Badges Earned:</h3>
+                <div class="coding-badges">
+                    <div class="empty-badge pulse">Complete lessons to earn badges!</div>
+                </div>
+                
+                <h3 class="slide-in-left">Points: <span class="coding-points rainbow-text">0</span></h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2025 CodeKids AI Adventure. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#" class="footer-link hover-bright">Privacy Policy</a>
+            <a href="#" class="footer-link hover-bright">Terms of Service</a>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/drag-drop-coding.js"></script>
+</body>
+</html>

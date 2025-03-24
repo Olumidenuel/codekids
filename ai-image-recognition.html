@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeKids AI Adventure - AI Learning Module</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/js/interactive.css">
+    <link rel="stylesheet" href="/css/screenshot-ui.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Card -->
+        <div class="card-container header-card page-load-animation">
+            <div class="logo-container">
+                <div class="logo-image animated-logo">
+                    <div style="font-size: 40px;">🤖</div>
+                </div>
+                <div class="logo-text">
+                    <h1 class="rainbow-text">CodeKids</h1>
+                    <h2>AI Adventure</h2>
+                </div>
+            </div>
+            <div class="welcome-message">
+                <h2 class="slide-in-right">AI Explorer</h2>
+                <p class="slide-in-right">Discover how AI works with interactive experiments</p>
+            </div>
+        </div>
+
+        <!-- Main Content Card -->
+        <div class="card-container page-load-animation hover-shadow">
+            <section>
+                <h1 class="pulse">AI Learning: Image Recognition</h1>
+                <p>Learn how AI can recognize images by training it yourself!</p>
+            </section>
+
+            <div class="ai-learning-module" data-module-type="image-recognition">
+                <h2 class="wiggle-hover">Train Your Own AI!</h2>
+                <p>In this activity, you'll teach an AI to recognize different types of images. Follow these steps:</p>
+                <ol class="slide-in-left">
+                    <li>Select an image from the dropdown</li>
+                    <li>Add it to a category (animals, vehicles, or food)</li>
+                    <li>Add at least 2 images to each category</li>
+                    <li>Click "Train AI" to teach the AI</li>
+                    <li>Select a new image and click "Test AI" to see what it learned!</li>
+                </ol>
+                
+                <div class="image-recognition-container">
+                    <div class="recognition-image-container hover-shadow">
+                        <img src="/images/ai-demo/cat.jpg" alt="Image for recognition" class="recognition-image pulse">
+                    </div>
+                    
+                    <select class="image-selector form-input hover-bright" style="margin: 20px 0;">
+                        <option value="cat">Cat</option>
+                        <option value="dog">Dog</option>
+                        <option value="rabbit">Rabbit</option>
+                        <option value="car">Car</option>
+                        <option value="bus">Bus</option>
+                        <option value="bicycle">Bicycle</option>
+                        <option value="apple">Apple</option>
+                        <option value="pizza">Pizza</option>
+                        <option value="cake">Cake</option>
+                    </select>
+                    
+                    <div class="categories-container slide-in-up" style="margin: 20px 0;">
+                        <div class="category-item hover-grow">
+                            <input type="radio" name="category" id="category-animals" class="category-input" data-category="animals">
+                            <label for="category-animals" class="category-label wiggle-hover" data-category="animals">
+                                Animals <span class="category-count">0</span>
+                            </label>
+                        </div>
+                        
+                        <div class="category-item hover-grow">
+                            <input type="radio" name="category" id="category-vehicles" class="category-input" data-category="vehicles">
+                            <label for="category-vehicles" class="category-label wiggle-hover" data-category="vehicles">
+                                Vehicles <span class="category-count">0</span>
+                            </label>
+                        </div>
+                        
+                        <div class="category-item hover-grow">
+                            <input type="radio" name="category" id="category-food" class="category-input" data-category="food">
+                            <label for="category-food" class="category-label wiggle-hover" data-category="food">
+                                Food <span class="category-count">0</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="training-progress-bar hover-shadow">
+                        <div class="training-progress-fill"></div>
+                    </div>
+                    
+                    <div class="ai-thinking bounce">
+                        AI is thinking... 🤔
+                    </div>
+                    
+                    <div style="text-align: center; margin: 20px 0;">
+                        <button class="button button-primary train-ai-button animated-button pulse">Train AI</button>
+                        <button class="button button-secondary test-ai-button animated-button" disabled>Test AI</button>
+                    </div>
+                    
+                    <div class="recognition-results fade-in">
+                        <h3 class="wiggle-hover">AI Prediction Results:</h3>
+                        <!-- Results will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Try Another AI Demo Card -->
+        <div class="card-container page-load-animation hover-shadow">
+            <h2 class="wiggle-hover">Try Another AI Demo!</h2>
+            <div class="ai-demos-navigation slide-in-up" style="display: flex; gap: 15px; justify-content: center; margin-top: 20px;">
+                <a href="/ai-pattern-matching.html" class="button button-primary animated-button">Pattern Matching</a>
+                <a href="/ai-decision-tree.html" class="button button-primary animated-button">Decision Tree</a>
+                <a href="/ai-chatbot.html" class="button button-primary animated-button">AI Chatbot</a>
+            </div>
+        </div>
+
+        <!-- Progress Card -->
+        <div class="card-container page-load-animation hover-shadow">
+            <h2 class="wiggle-hover">Your Adventure Map</h2>
+            <p>Track your progress and earn badges!</p>
+            
+            <div class="progress-tracking">
+                <h3 class="slide-in-left">AI Adventures Path:</h3>
+                <div class="progress-bar hover-shadow">
+                    <div class="progress-fill ai-progress" data-level="1" style="width: 15%;"></div>
+                </div>
+                <p>Level 1 - 15% Complete</p>
+                
+                <h3 class="slide-in-left">Badges Earned:</h3>
+                <div class="ai-badges">
+                    <div class="empty-badge pulse">Complete lessons to earn badges!</div>
+                </div>
+                
+                <h3 class="slide-in-left">Points: <span class="ai-points rainbow-text">0</span></h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2025 CodeKids AI Adventure. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#" class="footer-link hover-bright">Privacy Policy</a>
+            <a href="#" class="footer-link hover-bright">Terms of Service</a>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/ai-demonstrations.js"></script>
+</body>
+</html>

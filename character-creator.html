@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeKids AI Adventure - Character Creator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/js/interactive.css">
+    <link rel="stylesheet" href="/css/screenshot-ui.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Card -->
+        <div class="card-container header-card page-load-animation">
+            <div class="logo-container">
+                <div class="logo-image animated-logo">
+                    <div style="font-size: 40px;">👾</div>
+                </div>
+                <div class="logo-text">
+                    <h1 class="rainbow-text">CodeKids</h1>
+                    <h2>AI Adventure</h2>
+                </div>
+            </div>
+            <div class="welcome-message">
+                <h2 class="slide-in-right">Character Creator</h2>
+                <p class="slide-in-right">Design your own explorer to join you on your adventure</p>
+            </div>
+        </div>
+
+        <!-- Main Content Card -->
+        <div class="card-container page-load-animation hover-shadow">
+            <section>
+                <h1 class="pulse">Create Your Character</h1>
+                <p>Design your own coding character to join you on your learning adventure!</p>
+            </section>
+
+            <div class="character-creator">
+                <div class="character-preview-container float">
+                    <div class="character-preview bounce">👩‍💻</div>
+                </div>
+                <div class="character-preview-name rainbow-text">Coder</div>
+                
+                <div class="character-options">
+                    <div class="character-option-group slide-in-left">
+                        <div class="character-option-title wiggle-hover">Choose Your Character Type</div>
+                        <div class="character-type-options">
+                            <div class="character-type-button selected hover-grow" data-type="coder">
+                                <div class="character-type-icon pulse">👩‍💻</div>
+                                <div class="character-type-label">Coder</div>
+                            </div>
+                            <div class="character-type-button hover-grow" data-type="scientist">
+                                <div class="character-type-icon pulse">👩‍🔬</div>
+                                <div class="character-type-label">Scientist</div>
+                            </div>
+                            <div class="character-type-button hover-grow" data-type="astronaut">
+                                <div class="character-type-icon pulse">👩‍🚀</div>
+                                <div class="character-type-label">Astronaut</div>
+                            </div>
+                            <div class="character-type-button hover-grow" data-type="artist">
+                                <div class="character-type-icon pulse">👩‍🎨</div>
+                                <div class="character-type-label">Artist</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="character-option-group slide-in-right">
+                        <div class="character-option-title wiggle-hover">Choose Your Style</div>
+                        <div class="character-style-options">
+                            <div class="character-style-button selected hover-grow" data-style="girl">
+                                <div class="character-style-icon pulse">👧</div>
+                                <div class="character-style-label">Girl</div>
+                            </div>
+                            <div class="character-style-button hover-grow" data-style="boy">
+                                <div class="character-style-icon pulse">👦</div>
+                                <div class="character-style-label">Boy</div>
+                            </div>
+                            <div class="character-style-button hover-grow" data-style="kid">
+                                <div class="character-style-icon pulse">🧒</div>
+                                <div class="character-style-label">Kid</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="character-option-group slide-in-up">
+                        <div class="character-option-title wiggle-hover">Name Your Character</div>
+                        <input type="text" id="character-name" class="character-name-input hover-bright" placeholder="Enter a name for your character" value="Coder">
+                    </div>
+                </div>
+                
+                <button class="button button-primary character-save-button animated-button pulse" style="margin-top: 20px;">Save Character</button>
+            </div>
+        </div>
+
+        <!-- What's Next Card -->
+        <div class="card-container page-load-animation hover-shadow">
+            <h2 class="wiggle-hover">What's Next?</h2>
+            <p>Now that you've created your character, it's time to start your coding adventure!</p>
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+                <a href="/coding-exercise.html" class="button button-primary animated-button">Try Coding</a>
+                <a href="/ai-image-recognition.html" class="button button-secondary animated-button">Explore AI</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2025 CodeKids AI Adventure. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#" class="footer-link hover-bright">Privacy Policy</a>
+            <a href="#" class="footer-link hover-bright">Terms of Service</a>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

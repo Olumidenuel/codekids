@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeKids AI Adventure - Simple Code Editor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/js/interactive.css">
+    <link rel="stylesheet" href="/css/screenshot-ui.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css">
+    <style>
+        /* Code Editor Styles */
+        .simple-code-editor {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .editor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .example-selector {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .example-selector:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 8px rgba(74, 134, 232, 0.3);
+        }
+
+        .editor-container {
+            position: relative;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .editor-container:hover {
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .line-numbers {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 100%;
+            padding: 10px 5px;
+            background-color: #f5f5f5;
+            color: #888;
+            font-family: monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            text-align: right;
+            overflow: hidden;
+            user-select: none;
+            white-space: pre;
+        }
+
+        .code-highlight {
+            position: absolute;
+            top: 0;
+            left: 40px;
+            right: 0;
+            height: 100%;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            white-space: pre;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .code-input {
+            position: absolute;
+            top: 0;
+            left: 40px;
+            right: 0;
+            height: 100%;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            color: transparent;
+            background: transparent;
+            caret-color: black;
+            border: none;
+            outline: none;
+            resize: none;
+            white-space: pre;
+            overflow: auto;
+        }
+
+        .code-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .code-output {
+            height: 200px;
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            border-radius: 10px;
+            padding: 10px;
+            font-family: monospace;
+            overflow-y: auto;
+            transition: all 0.3s ease;
+        }
+
+        .code-output:hover {
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .output-line {
+            margin-bottom: 5px;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .log-output {
+            color: #f8f8f2;
+        }
+
+        .error-output {
+            color: #ff5555;
+        }
+
+        .warning-output {
+            color: #ffb86c;
+        }
+
+        .alert-output {
+            color: #8be9fd;
+        }
+
+        .turtle-output {
+            color: #50fa7b;
+        }
+
+        .turtle-canvas {
+            display: block;
+            margin: 10px auto;
+            background-color: white;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .turtle-canvas:hover {
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .editor-instructions {
+            background-color: #e3f2fd;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .editor-instructions:hover {
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .editor-instructions h3 {
+            margin-top: 0;
+        }
+
+        .editor-instructions code {
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+            transition: all 0.3s ease;
+        }
+
+        .editor-instructions code:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Card -->
+        <div class="card-container header-card page-load-animation">
+            <div class="logo-container">
+                <div class="logo-image animated-logo">
+                    <div style="font-size: 40px;">👾</div>
+                </div>
+                <div class="logo-text">
+                    <h1 class="rainbow-text">CodeKids</h1>
+                    <h2>AI Adventure</h2>
+                </div>
+            </div>
+            <div class="welcome-message">
+                <h2 class="slide-in-right">Code Editor</h2>
+                <p class="slide-in-right">Write your own code and see it run instantly</p>
+            </div>
+        </div>
+
+        <!-- Main Content Card -->
+        <div class="card-container page-load-animation hover-shadow">
+            <section>
+                <h1 class="pulse">Simple Code Editor</h1>
+                <p>Write your own code and see it run! Try out the examples or create your own programs.</p>
+            </section>
+
+            <div class="editor-instructions slide-in-left">
+                <h3 class="wiggle-hover">How to Use the Code Editor</h3>
+                <p>This is a simple JavaScript code editor where you can write and run your own code. Here are some things you can do:</p>
+                <ul>
+                    <li>Use <code class="hover-bright">console.log("Hello");</code> to display messages</li>
+                    <li>Use the turtle to draw shapes:
+                        <ul>
+                            <li><code class="hover-bright">turtle.forward(50);</code> - Move forward 50 pixels</li>
+                            <li><code class="hover-bright">turtle.right(90);</code> - Turn right 90 degrees</li>
+                            <li><code class="hover-bright">turtle.left(90);</code> - Turn left 90 degrees</li>
+                            <li><code class="hover-bright">turtle.setColor("#ff0000");</code> - Change pen color to red</li>
+                            <li><code class="hover-bright">turtle.clear();</code> - Clear the canvas</li>
+                        </ul>
+                    </li>
+                    <li>Try the examples from the dropdown menu to see what's possible!</li>
+                </ul>
+            </div>
+
+            <div class="simple-code-editor">
+                <div class="editor-header">
+                    <select class="example-selector form-input hover-bright" style="min-width: 200px;">
+                        <option value="">Select an example...</option>
+                        <option value="hello-world">Hello World</option>
+                        <option value="variables">Variables</option>
+                        <option value="loop">Loop</option>
+                        <option value="turtle-square">Turtle: Draw a Square</option>
+                        <option value="turtle-star">Turtle: Draw a Star</option>
+                        <option value="turtle-spiral">Turtle: Draw a Spiral</option>
+                    </select>
+                    
+                    <div class="code-actions">
+                        <button class="button button-primary run-code-button animated-button pulse">Run Code</button>
+                        <button class="button button-secondary reset-code-button animated-button">Reset</button>
+                    </div>
+                </div>
+                
+                <div class="editor-container hover-shadow">
+                    <div class="line-numbers">1</div>
+                    <div class="code-highlight"></div>
+                    <textarea class="code-input" spellcheck="false" placeholder="// Write your code here
+console.log('Hello, world!');">// Write your code here
+console.log('Hello, world!');</textarea>
+                </div>
+                
+                <h3 class="slide-in-left">Output:</h3>
+                <div class="code-output hover-shadow fade-in"></div>
+            </div>
+        </div>
+
+        <!-- Try More Activities Card -->
+        <div class="card-container page-load-animation hover-shadow">
+            <h2 class="wiggle-hover">Try More Coding Activities</h2>
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+                <a href="/coding-exercise.html" class="button button-primary animated-button">Block Coding</a>
+                <a href="/character-creator.html" class="button button-secondary animated-button">Create Character</a>
+                <a href="/ai-image-recognition.html" class="button button-secondary animated-button">Explore AI</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2025 CodeKids AI Adventure. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#" class="footer-link hover-bright">Privacy Policy</a>
+            <a href="#" class="footer-link hover-bright">Terms of Service</a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/simple-code-editor.js"></script>
+</body>
+</html>
