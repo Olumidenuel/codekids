@@ -1,0 +1,47 @@
+// Sample image placeholders for AI demo
+// These would be replaced with actual images in a production environment
+.recognition-image {
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  width: 100%;
+  height: 100%;
+}
+
+.cat-image::after {
+  content: "🐱";
+}
+
+.dog-image::after {
+  content: "🐶";
+}
+
+.rabbit-image::after {
+  content: "🐰";
+}
+
+.car-image::after {
+  content: "🚗";
+}
+
+.bus-image::after {
+  content: "🚌";
+}
+
+.bicycle-image::after {
+  content: "🚲";
+}
+
+.apple-image::after {
+  content: "🍎";
+}
+
+.pizza-image::after {
+  content: "🍕";
+}
+
+.cake-image::after {
+  content: "🍰";
+}
