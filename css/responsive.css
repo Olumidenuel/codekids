@@ -1,0 +1,424 @@
+/* Responsive Layout CSS for CodeKids AI Adventure */
+
+/* Base responsive settings */
+html {
+    font-size: 16px;
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    html {
+        font-size: 18px;
+    }
+    
+    .container {
+        max-width: 1140px;
+    }
+}
+
+/* Large devices (desktops, 992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+/* Medium devices (tablets, 768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    html {
+        font-size: 15px;
+    }
+    
+    .container {
+        max-width: 720px;
+    }
+    
+    .card-container {
+        padding: 30px;
+    }
+    
+    .logo-image {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .logo-text h1 {
+        font-size: 2.2rem;
+    }
+    
+    .parents-buttons {
+        flex-wrap: wrap;
+    }
+}
+
+/* Small devices (landscape phones, 576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    html {
+        font-size: 14px;
+    }
+    
+    .container {
+        max-width: 540px;
+    }
+    
+    .card-container {
+        padding: 25px;
+        margin: 15px 0;
+    }
+    
+    .header-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .logo-container {
+        margin-bottom: 15px;
+    }
+    
+    .welcome-message {
+        text-align: center;
+    }
+    
+    .logo-image {
+        width: 60px;
+        height: 60px;
+        margin-right: 15px;
+    }
+    
+    .logo-text h1 {
+        font-size: 2rem;
+    }
+    
+    .logo-text h2 {
+        font-size: 1rem;
+    }
+    
+    .welcome-message h2 {
+        font-size: 1.5rem;
+    }
+    
+    .adventure-selection {
+        flex-direction: column;
+    }
+    
+    .adventure-option {
+        margin-bottom: 15px;
+    }
+    
+    .parents-buttons {
+        flex-wrap: wrap;
+    }
+    
+    .button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575px) {
+    html {
+        font-size: 13px;
+    }
+    
+    .container {
+        padding: 10px;
+    }
+    
+    .card-container {
+        padding: 20px;
+        margin: 10px 0;
+        border-radius: 15px;
+    }
+    
+    .header-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .logo-container {
+        margin-bottom: 15px;
+        flex-direction: column;
+    }
+    
+    .logo-image {
+        width: 50px;
+        height: 50px;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .logo-text h1 {
+        font-size: 1.8rem;
+    }
+    
+    .logo-text h2 {
+        font-size: 0.9rem;
+    }
+    
+    .welcome-message {
+        text-align: center;
+    }
+    
+    .welcome-message h2 {
+        font-size: 1.3rem;
+    }
+    
+    .welcome-message p {
+        font-size: 0.9rem;
+    }
+    
+    .adventure-selection {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .adventure-option {
+        padding: 20px;
+    }
+    
+    .adventure-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .parents-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .button {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Resources and contact sections in mobile */
+    .parents-section > div {
+        flex-direction: column;
+    }
+    
+    .resources-section, .contact-section {
+        width: 100%;
+        margin-top: 20px;
+    }
+    
+    /* Map adjustments */
+    .map-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .map-item-left, .map-item-right {
+        justify-content: flex-start;
+        text-align: left;
+    }
+    
+    .map-line-vertical {
+        left: 30px;
+    }
+    
+    .map-line-horizontal {
+        display: none;
+    }
+    
+    /* Code editor adjustments */
+    .editor-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .example-selector {
+        margin-bottom: 10px;
+    }
+    
+    .code-actions {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .editor-container {
+        height: 250px;
+    }
+    
+    .code-output {
+        height: 150px;
+    }
+    
+    /* Character creator adjustments */
+    .character-type-options, .character-style-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    
+    .character-type-button, .character-style-button {
+        padding: 10px;
+    }
+    
+    /* AI demo adjustments */
+    .ai-demos-navigation {
+        flex-direction: column;
+    }
+    
+    .categories-container {
+        flex-direction: column;
+    }
+    
+    /* Coding exercise adjustments */
+    .code-blocks-palette {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .code-block {
+        margin: 5px;
+        font-size: 0.9rem;
+    }
+    
+    .exercise-canvas {
+        height: 250px;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+    .button:hover {
+        transform: none;
+        box-shadow: var(--button-shadow);
+    }
+    
+    .button:active {
+        transform: translateY(1px);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .adventure-option:hover {
+        transform: none;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .adventure-option:active {
+        transform: translateY(2px);
+    }
+    
+    /* Add touch-friendly tap targets */
+    .button, .adventure-option, .character-type-button, 
+    .character-style-button, .code-block, .category-label {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .card-container {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        break-inside: avoid;
+    }
+    
+    .button, .code-actions, .editor-container {
+        display: none;
+    }
+}
+
+/* Specific component responsive adjustments */
+
+/* Code blocks responsive adjustments */
+@media (max-width: 768px) {
+    .code-blocks-palette {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    
+    .code-workspace {
+        min-height: 200px;
+    }
+}
+
+/* Character creator responsive adjustments */
+@media (max-width: 768px) {
+    .character-preview-container {
+        margin-bottom: 20px;
+    }
+    
+    .character-options {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+/* AI image recognition responsive adjustments */
+@media (max-width: 768px) {
+    .image-recognition-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .recognition-image-container {
+        width: 100%;
+        max-width: 250px;
+        margin-bottom: 15px;
+    }
+    
+    .categories-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+
+/* Progress tracking responsive adjustments */
+@media (max-width: 768px) {
+    .progress-tracking {
+        padding: 15px;
+    }
+    
+    .progress-bar {
+        height: 15px;
+    }
+}
+
+/* Animation adjustments for smaller screens */
+@media (max-width: 768px) {
+    /* Reduce animation intensity on small screens to prevent overwhelming experience */
+    .float {
+        animation: float 3s ease-in-out infinite;
+        animation-duration: 4s; /* Slower */
+        animation-direction: alternate; /* Gentler */
+    }
+    
+    .pulse {
+        animation: pulse 3s ease-in-out infinite;
+        animation-duration: 4s; /* Slower */
+    }
+    
+    /* Disable some animations that might be distracting on small screens */
+    .wiggle-hover:hover {
+        animation: none;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+}
